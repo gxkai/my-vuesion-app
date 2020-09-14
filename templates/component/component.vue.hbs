@@ -1,0 +1,22 @@
+<template>
+  <div :class="$style.{{ camelCase componentName }}">
+    {{ properCase componentName }}
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component({
+  name: '{{ properCase componentName }}',
+})
+export default class {{ properCase componentName }} extends Vue {};
+</script>
+
+<style lang="scss" module>
+@import '~@/shared/design-system';
+
+.{{ camelCase componentName }} {
+  // this class is only applied if you add css properties
+}
+</style>

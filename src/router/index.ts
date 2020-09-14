@@ -1,28 +1,31 @@
 import Vue from "vue";
-import VueRouter, { RouteConfig } from "vue-router";
-import Home from "../views/Home.vue";
+import VueRouter, { Route, RouteRecord } from "vue-router";
+// @ts-ignore
+import Meta from "vue-meta";
+import { AppRoutes } from "@/app/routes";
+import { store } from "@/store";
+import { HomeRoutes } from "@/views/home/routes";
 
 Vue.use(VueRouter);
+Vue.use(Meta);
 
-const routes: Array<RouteConfig> = [
-  {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
-  }
-];
-
-const router = new VueRouter({
-  routes
+export const router: VueRouter = new VueRouter({
+  mode: "hash",
+  routes: [...AppRoutes, ...HomeRoutes]
 });
 
-export default router;
+// example guard
+// TODO remove or adjust in production code
+router.beforeEach((to: Route, from: Route, next: any) => {
+  if (to.matched.some((record: RouteRecord) => record.meta.requiresAuth)) {
+    const isAuthenticated = store.getters["auth/isAuthenticated"];
+
+    if (!isAuthenticated) {
+      next({ path: "/", query: { redirect: to.fullPath } });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});

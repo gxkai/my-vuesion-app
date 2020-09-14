@@ -15,7 +15,20 @@ module.exports = {
   },
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-useless-escape": 0,
+    "@typescript-eslint/camelcase": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/consistent-type-assertions": 0,
+    "no-async-promise-executor": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "vue/require-v-for-key": 0,
+    "vue/no-use-v-if-with-v-for": 0,
+    "vue/no-unused-components": 0
   },
   overrides: [
     {
