@@ -1,34 +1,6 @@
 <template>
   <div :class="$style.stage" ref="stage">
     <canvas :class="$style.canvas" ref="canvas"></canvas>
-
-    <vue-grid>
-      <vue-grid-row>
-        <vue-grid-item class="vueGridItem">
-          <img src="logo.png" alt="vuesion" />
-          <vue-headline level="1">vuesion</vue-headline>
-          <div :class="$style.subTitle">
-            {{
-              $t(
-                "App.core.description" /* The most complete boilerplate for production-ready PWAs. With focus on performance, development speed, and best practices */
-              )
-            }}
-          </div>
-
-          <br />
-
-          <a
-            :class="$style.github"
-            href="https://github.com/vuesion/vuesion"
-            target="_blank"
-            rel="noopener"
-            aria-label="vuesion github repository"
-          >
-            <vue-icon-github />
-          </a>
-        </vue-grid-item>
-      </vue-grid-row>
-    </vue-grid>
   </div>
 </template>
 
@@ -84,58 +56,20 @@ export default class Stage extends Vue {
 @import "~@/shared/design-system";
 
 .stage {
-  min-height: 100vh;
+  position: fixed;
   overflow: hidden;
-  position: relative;
-  text-align: center;
-  text-shadow: 0 0 5px rgba(15, 15, 15, 0.4);
-  padding-top: $space-84;
-
-  img {
-    max-width: 12.8rem;
-  }
-
-  h1 {
-    margin-bottom: $space-32;
-    font-weight: $font-weight-light;
-  }
-
-  @include mediaMin(tabletPortrait) {
-    min-height: 50vh;
-    img {
-      max-width: 25.6rem;
-    }
-  }
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 .canvas {
-  min-height: 100vh;
+  height: 100%;
   width: 100%;
   position: absolute;
   background-color: transparent;
   left: 0;
   top: 0;
-
-  @include mediaMin(tabletPortrait) {
-    min-height: 50vh;
-  }
-}
-
-.github {
-  font-size: $font-size-h1;
-  display: inline-block;
-  background: $brand-bg-color;
-  transition: $button-transition;
-  transition-property: box-shadow, background-color;
-  color: $brand-link-color;
-
-  &:hover {
-    box-shadow: $button-active-shadow;
-  }
-
-  i {
-    height: $font-size-h1;
-    width: $font-size-h1;
-  }
 }
 </style>

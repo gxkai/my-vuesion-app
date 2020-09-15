@@ -6,7 +6,7 @@ import { IAuthState } from "@/shared/modules/auth/authModule"; //https://github.
 
 Vue.use(Vuex);
 const VuexLocal = new VuexPersistence({
-  storage: localStorage,
+  storage: window.sessionStorage,
   asyncStorage: false,
   modules: ["app"]
 });

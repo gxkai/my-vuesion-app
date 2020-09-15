@@ -28,15 +28,6 @@
 
     <vue-footer />
 
-    <vue-cookie-consent
-      current-version="1.0.0"
-      :cookie-consent-version="cookieConsentVersion"
-      :set-cookie-consent-version="setCookieConsentVersion"
-    >
-      This is a cookie consent component which shows the cookie consent every
-      time you change the version of the consent.
-    </vue-cookie-consent>
-
     <vue-sidebar>
       <vue-sidebar-group title="Languages">
         <vue-sidebar-group-item>
@@ -56,81 +47,15 @@
           Home
         </vue-sidebar-group-item>
 
-        <vue-sidebar-group-item :to="{ name: 'counter' }">
+        <vue-sidebar-group-item :to="{ name: 'dashboard' }">
           <vue-icon-hashtag />
-          VueX Example
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item :to="{ name: 'form' }">
-          <vue-icon-hashtag />
-          Form Example
+          Dashboard
         </vue-sidebar-group-item>
       </vue-sidebar-group>
 
-      <vue-sidebar-group title="Documentation">
-        <vue-sidebar-group-item>
-          <a href="https://vuesion.github.io/docs/en/">
-            <vue-icon-book />
-            Documentation
-          </a>
-        </vue-sidebar-group-item>
+      <vue-sidebar-group title="Documentation"> </vue-sidebar-group>
 
-        <vue-sidebar-group-item>
-          <a href="/storybook/?path=/story/design-system-design-system--intro">
-            <vue-icon-book />
-            Design System
-          </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="/storybook/?path=/story/atoms-badge--badge-variants">
-            <vue-icon-puzzle-piece />
-            Components
-          </a>
-        </vue-sidebar-group-item>
-      </vue-sidebar-group>
-
-      <vue-sidebar-group title="Community">
-        <vue-sidebar-group-item>
-          <a
-            href="https://github.com/vuesion/vuesion"
-            target="_blank"
-            rel="noopener"
-          >
-            <vue-icon-github />
-            Github
-          </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="https://discord.gg/59x5cg2" target="_blank" rel="noopener">
-            Discord
-          </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a
-            href="https://slack-vuesion.herokuapp.com/"
-            target="_blank"
-            rel="noopener"
-          >
-            Slack
-          </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="https://chat.vuejs.org/" target="_blank" rel="noopener">
-            VueLand
-          </a>
-        </vue-sidebar-group-item>
-
-        <vue-sidebar-group-item>
-          <a href="https://twitter.com/vuesion1" target="_blank" rel="noopener">
-            <vue-icon-twitter-square />
-            Twitter
-          </a>
-        </vue-sidebar-group-item>
-      </vue-sidebar-group>
+      <vue-sidebar-group title="Community"> </vue-sidebar-group>
     </vue-sidebar>
 
     <vue-modal :show="showLoginModal" @close="showLoginModal = false">

@@ -37,18 +37,20 @@ export default class Auth extends VuexModule<ThisType<IAuthState>> {
   @Action
   async createToken({ username, password }) {
     try {
-      const {
-        data: { access_token, refresh_token }
-      } = await HttpService.post<IAuthResponse>(
-        "/token",
-        getFormData(username, password),
-        {
-          headers: {
-            Authorization: "Basic Zm9vYmFy",
-            "Content-Type": "application/x-www-form-urlencoded"
-          }
-        }
-      );
+      // const {
+      //   data: { access_token, refresh_token }
+      // } = await HttpService.post<IAuthResponse>(
+      //   "/token",
+      //   getFormData(username, password),
+      //   {
+      //     headers: {
+      //       Authorization: "Basic Zm9vYmFy",
+      //       "Content-Type": "application/x-www-form-urlencoded"
+      //     }
+      //   }
+      // );
+      const access_token = "access_token";
+      const refresh_token = "refresh_token";
       this.SET_ACCESS_TOKEN(access_token);
       this.SET_REFRESH_TOKEN(refresh_token);
     } catch (e) {

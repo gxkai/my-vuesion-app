@@ -5,13 +5,14 @@ import Meta from "vue-meta";
 import { AppRoutes } from "@/app/routes";
 import { store } from "@/store";
 import { HomeRoutes } from "@/views/home/routes";
+import { DashboardRoutes } from "@/views/dashboard/routes";
 
 Vue.use(VueRouter);
 Vue.use(Meta);
 
 export const router: VueRouter = new VueRouter({
   mode: "hash",
-  routes: [...AppRoutes, ...HomeRoutes]
+  routes: [...AppRoutes, ...HomeRoutes, ...DashboardRoutes]
 });
 
 // example guard

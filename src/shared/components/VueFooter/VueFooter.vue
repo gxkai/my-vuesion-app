@@ -3,38 +3,7 @@
     <vue-grid>
       <vue-grid-row>
         <vue-grid-item>
-          <small>&copy; Copyright {{ year }} Johannes Werner</small>
-        </vue-grid-item>
-
-        <vue-grid-item>
-          <a
-            href="https://github.com/devCrossNet"
-            target="_blank"
-            rel="noopener"
-            aria-label="github profile"
-          >
-            <vue-icon-github-alt />
-          </a>
-          <a
-            href="https://twitter.com/vuesion1"
-            target="_blank"
-            rel="noopener"
-            aria-label="twitter profile"
-          >
-            <vue-icon-twitter-square />
-          </a>
-        </vue-grid-item>
-
-        <vue-grid-item>
-          <small>
-            <a
-              href="https://github.com/vuesion/vuesion/blob/master/LICENSE"
-              target="_blank"
-              rel="noopener"
-            >
-              MIT License
-            </a>
-          </small>
+          <small>&copy; Copyright {{ year }} {{ config.author.name }}</small>
         </vue-grid-item>
       </vue-grid-row>
     </vue-grid>
@@ -48,7 +17,7 @@ import VueGridRow from "../VueGridRow/VueGridRow.vue";
 import VueIconGithubAlt from "../icons/VueIconGithubAlt/VueIconGithubAlt.vue";
 import VueIconTwitterSquare from "../icons/VueIconTwitterSquare/VueIconTwitterSquare.vue";
 import { Component, Inject, Prop, Vue, Watch } from "vue-property-decorator";
-
+import config from "../../../../package.json";
 @Component({
   name: "VueFooter",
   components: {
@@ -62,6 +31,9 @@ import { Component, Inject, Prop, Vue, Watch } from "vue-property-decorator";
 export default class VueFooter extends Vue {
   get year() {
     return new Date().getFullYear();
+  }
+  get config() {
+    return config;
   }
 }
 </script>

@@ -1,6 +1,9 @@
 {
   "name": "my-vuesion-app",
   "version": "0.1.0",
+  "author": {
+    "name": "gxkai"
+  },
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -10,7 +13,10 @@
     "storybook": "NODE_ENV=storybook start-storybook --ci  -s ./public -p 9001",
     "build-storybook": "build-storybook",
     "plop": "plop",
-    "chromatic": "npx chromatic --project-token=ufo682y2cuj"
+    "chromatic": "npx chromatic --project-token=ufo682y2cuj",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:major": "standard-version --release-as major"
   },
   "dependencies": {
     "@types/animejs": "^3.1.2",
@@ -79,6 +85,7 @@
     "plop-pack-fancy-comments": "^0.2.1",
     "prettier": "^1.19.1",
     "sass-loader": "^8.0.2",
+    "standard-version": "^9.0.0",
     "storybook-addon-vue-info": "^1.4.2",
     "storybook-vue-router": "^1.0.7",
     "typescript": "~3.9.3",
