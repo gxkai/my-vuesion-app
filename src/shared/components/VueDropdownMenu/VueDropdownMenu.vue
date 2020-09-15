@@ -31,10 +31,10 @@
 </template>
 
 <script lang="ts">
-import { getIntInRange } from "@vuesion/utils/dist/randomGenerator";
 import VueIconSortDown from "../icons/VueIconSortDown/VueIconSortDown.vue";
 import VueCollapse from "../VueCollapse/VueCollapse.vue";
 import { Component, Inject, Prop, Vue, Watch } from "vue-property-decorator";
+import { getIntInRange } from "@/shared/utils/randomGenerator.util";
 
 @Component({
   name: "VueDropdownMenu",

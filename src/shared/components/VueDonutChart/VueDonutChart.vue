@@ -38,10 +38,10 @@
 </template>
 
 <script lang="ts">
-import { getIntInRange } from "@vuesion/utils/dist/randomGenerator";
 import { IChartDataItem } from "./IChartDataItem";
 import VueHeadline from "../VueHeadline/VueHeadline.vue";
 import { Component, Inject, Prop, Vue, Watch } from "vue-property-decorator";
+import { getIntInRange } from "@/shared/utils/randomGenerator.util";
 
 const usedColors: string[] = [];
 

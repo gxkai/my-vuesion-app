@@ -1,7 +1,7 @@
 import {
   getFloatInRange,
   getIntInRange
-} from "@vuesion/utils/dist/randomGenerator";
+} from "@/shared/utils/randomGenerator.util";
 
 class Circle {
   private opacity: number = getFloatInRange(0.05, 0.9);

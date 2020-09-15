@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts">
-import { getIntInRange } from "@vuesion/utils/dist/randomGenerator";
 import { Component, Prop, Vue, Watch } from "vue-property-decorator";
+import { getIntInRange } from "@/shared/utils/randomGenerator.util";
 
 @Component({
   name: "VueNavigationProgress"
