@@ -69,8 +69,7 @@ export default class LoginForm extends Vue {
   username = "";
   password = "";
   get hasErrors() {
-    // return this.errors && this.errors.items.length > 0;
-    return false;
+    return this.errors && this.errors.items.length > 0;
   }
   get hasEmptyFields() {
     return this.username.trim() === "" || this.password.trim() === "";
