@@ -86,7 +86,9 @@ export default class VueTextarea extends Vue {
   })
   validation!: string;
   get isValid() {
-    return this.errors ? this.errors.first(this.name) === null : true;
+    return this.$validator.errors
+      ? this.$validator.errors.first(this.name) === null
+      : true;
   }
   get messageOrError() {
     return this.isValid ? this.message : this.errorMessage;

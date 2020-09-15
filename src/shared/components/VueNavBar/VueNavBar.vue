@@ -32,7 +32,12 @@ export default class VueNavBar extends Vue {}
   position: fixed;
   top: 0;
   left: 0;
-  background: $nav-bar-bg;
+  //background: $nav-bar-bg;
+  @include background-gradient(
+    30deg,
+    palette-color-level("coral", 40),
+    palette-color-level("blue", 40)
+  );
   display: flex;
   flex-direction: row;
   align-content: center;

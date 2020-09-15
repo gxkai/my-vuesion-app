@@ -7,9 +7,10 @@ class Circle {
   private opacity: number = getFloatInRange(0.05, 0.9);
   private counter = 0;
   private direction = 0;
+  private start = 0;
 
   constructor(
-    private context: CanvasRenderingContext2D | any,
+    private context: CanvasRenderingContext2D,
     private radius: number,
     private speed: number,
     private width: number,
@@ -18,13 +19,36 @@ class Circle {
   ) {
     this.direction = getIntInRange(0, 1) === 1 ? -1 : 1;
   }
-
   public update(): void {
     this.counter += this.direction * this.speed;
 
     const opacityDirection: number = getIntInRange(0, 1) === 1 ? -1 : 1;
     this.opacity += opacityDirection * (getIntInRange(0, 999) / 50000);
+    if (this.start === 0) {
+      const randomInt = getFloatInRange(0, 1);
+      if (randomInt < 0.2) {
+        this.arc();
+      } else if (randomInt >= 0.2 && randomInt < 0.4) {
+        this.rect();
+      } else {
+        this.tri();
+      }
+    }
+    this.context.fillStyle = `rgba(${getFloatInRange(0, 1) *
+      255}, ${getFloatInRange(0, 1) * 255}, ${getFloatInRange(0, 1) * 255},  ${
+      this.opacity
+    })`;
+    this.context.fill();
 
+    if (this.opacity <= 0) {
+      this.counter = 0;
+      this.opacity = getFloatInRange(0.05, 0.9);
+      this.width = getIntInRange(2, 10);
+      this.speed = getFloatInRange(0.1, 1);
+    }
+  }
+
+  public arc(): void {
     this.context.beginPath();
 
     this.context.arc(
@@ -37,16 +61,18 @@ class Circle {
     );
 
     this.context.closePath();
+  }
 
-    this.context.fillStyle = "rgba(244, 59, 108," + this.opacity + ")";
-    this.context.fill();
+  public rect(): void {
+    this.context.fillRect(this.xPos, this.yPos, this.width, this.width);
+  }
 
-    if (this.opacity <= 0) {
-      this.counter = 0;
-      this.opacity = getFloatInRange(0.05, 0.9);
-      this.width = getIntInRange(2, 10);
-      this.speed = getFloatInRange(0.1, 1);
-    }
+  public tri(): void {
+    this.context.beginPath();
+    this.context.moveTo(this.xPos, this.yPos + this.width);
+    this.context.moveTo(this.xPos + this.width, this.yPos + this.width);
+    this.context.moveTo(this.xPos, this.yPos);
+    this.context.closePath();
   }
 }
 
@@ -72,7 +98,6 @@ const getCircles = (
 
   return localCircles;
 };
-
 const draw = (
   canvas: HTMLCanvasElement | any,
   context: CanvasRenderingContext2D | any,

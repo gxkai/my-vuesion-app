@@ -96,7 +96,9 @@ export default class VueSelect extends Vue {
   placeholder!: string;
   selectOptions: IAutocompleteOption[] = [];
   get isValid() {
-    return this.errors ? this.errors.first(this.name) === null : true;
+    return this.$validator.errors
+      ? this.$validator.errors.first(this.name) === null
+      : true;
   }
   get cssClasses() {
     const classes = [this.$style.vueSelect];
