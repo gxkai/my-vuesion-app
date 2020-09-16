@@ -21,6 +21,18 @@
     "paths": {
       "@/*": [
         "src/*"
+      ],
+      "@shared/*": [
+        "src/shared/*"
+      ],
+      "@components/*": [
+        "src/shared/components/*"
+      ],
+      "@static/*": [
+        "src/static/*"
+      ],
+      "@assets/*": [
+        "src/static/*"
       ]
     },
     "lib": [

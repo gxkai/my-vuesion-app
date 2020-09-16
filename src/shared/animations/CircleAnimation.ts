@@ -24,16 +24,7 @@ class Circle {
 
     const opacityDirection: number = getIntInRange(0, 1) === 1 ? -1 : 1;
     this.opacity += opacityDirection * (getIntInRange(0, 999) / 50000);
-    if (this.start === 0) {
-      const randomInt = getFloatInRange(0, 1);
-      if (randomInt < 0.2) {
-        this.arc();
-      } else if (randomInt >= 0.2 && randomInt < 0.4) {
-        this.rect();
-      } else {
-        this.tri();
-      }
-    }
+    this.randomShape();
     this.context.fillStyle = `rgba(${getFloatInRange(0, 1) *
       255}, ${getFloatInRange(0, 1) * 255}, ${getFloatInRange(0, 1) * 255},  ${
       this.opacity
@@ -46,6 +37,11 @@ class Circle {
       this.width = getIntInRange(2, 10);
       this.speed = getFloatInRange(0.1, 1);
     }
+  }
+
+  public randomShape(): void {
+    const randomInt = getFloatInRange(0, 1);
+    this.arc();
   }
 
   public arc(): void {
@@ -64,15 +60,12 @@ class Circle {
   }
 
   public rect(): void {
-    this.context.fillRect(this.xPos, this.yPos, this.width, this.width);
-  }
-
-  public tri(): void {
-    this.context.beginPath();
-    this.context.moveTo(this.xPos, this.yPos + this.width);
-    this.context.moveTo(this.xPos + this.width, this.yPos + this.width);
-    this.context.moveTo(this.xPos, this.yPos);
-    this.context.closePath();
+    this.context.fillRect(
+      this.xPos + Math.cos(this.counter / 100) * this.radius,
+      this.yPos + Math.cos(this.counter / 100) * this.radius,
+      this.width,
+      this.width
+    );
   }
 }
 

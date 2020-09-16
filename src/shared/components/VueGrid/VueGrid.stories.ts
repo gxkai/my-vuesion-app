@@ -10,7 +10,15 @@ story.add(
  () => ({
     components: { VueGrid },
     template: `<vue-grid>VueGrid</vue-grid>`
-  })
+  }),{
+        info: {
+            summary: "",
+            useDocgen: true,
+            docsInPanel: false,
+            header: true,
+            source: true
+        }
+    }
 );
 
 story.add(
