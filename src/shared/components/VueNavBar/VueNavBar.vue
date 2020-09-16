@@ -33,7 +33,7 @@ export default class VueNavBar extends Vue {}
   top: 0;
   left: 0;
   //background: $nav-bar-bg;
-  @include background-gradient(
+  @include background-gradient-deg(
     30deg,
     palette-color-level("coral", 40),
     palette-color-level("blue", 40)

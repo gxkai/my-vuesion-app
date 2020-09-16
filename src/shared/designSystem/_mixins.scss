@@ -9,7 +9,7 @@
     background: linear-gradient($orientation, $start-color, $end-color);
   }
 }
-@mixin background-gradient($deg, $start-color, $end-color) {
+@mixin background-gradient-deg($deg, $start-color, $end-color) {
   background: linear-gradient($deg, $start-color, $end-color);
 }
 
