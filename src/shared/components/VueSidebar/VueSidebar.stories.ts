@@ -11,7 +11,15 @@ story.add(
   () => ({
     components: { VueSidebar },
     template: `<vue-sidebar>VueSidebar</vue-sidebar>`
-  })
+  }),{
+        info: {
+            summary: "",
+            useDocgen: true,
+            docsInPanel: false,
+            header: true,
+            source: true
+        }
+    }
 );
 
 story.add(
@@ -57,7 +65,7 @@ story.add(
     template: `<vue-sidebar>
   <vue-sidebar-group title="Navigation">
         <vue-sidebar-group-item>
-          <a href="https://github.com/vuesion/vuesion" target="_blank" rel="noopener">
+          <a href="https://github.com/gxkai/my-vuesion-app" target="_blank" rel="noopener">
             <vue-icon-code />
             Github
           </a>

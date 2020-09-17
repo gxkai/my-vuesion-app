@@ -14,5 +14,13 @@ story.add(
     methods: {
       onSubmit: action('@submit'),
     },
-  })
+  }),{
+        info: {
+            summary: "",
+            useDocgen: true,
+            docsInPanel: false,
+            header: true,
+            source: true
+        }
+    }
 );

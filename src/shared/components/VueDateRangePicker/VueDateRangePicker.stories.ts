@@ -14,7 +14,15 @@ story.add(
     methods: {
       action: action("@change")
     }
-  })
+  }),{
+        info: {
+            summary: "",
+            useDocgen: true,
+            docsInPanel: false,
+            header: true,
+            source: true
+        }
+    }
 );
 
 story.add(
@@ -29,7 +37,15 @@ story.add(
     methods: {
       action: action("@change")
     }
-  })
+  }),{
+        info: {
+            summary: "",
+            useDocgen: true,
+            docsInPanel: false,
+            header: true,
+            source: true
+        }
+    }
 );
 
 story.add(
@@ -44,5 +60,13 @@ story.add(
     methods: {
       action: action("@change")
     }
-  })
+  }),{
+        info: {
+            summary: "",
+            useDocgen: true,
+            docsInPanel: false,
+            header: true,
+            source: true
+        }
+    }
 );

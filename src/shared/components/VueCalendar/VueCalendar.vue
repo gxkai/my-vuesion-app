@@ -156,7 +156,7 @@ interface IYear {
     VueButton
   }
 })
-export default class VueCalendar extends Vue {
+export default class VueCalendar extends Vue implements IData {
   @Prop({
     type: Date,
     default: () => new Date()
@@ -302,12 +302,12 @@ export default class VueCalendar extends Vue {
     this.setDate();
   }
   selecting = "date";
-  currentMonth!: number;
-  currentYear!: number;
-  selectedDayOfWeek!: number;
-  selectedDay!: number;
-  selectedMonth!: number;
-  selectedYear!: number;
+  currentMonth = 0;
+  currentYear = 0;
+  selectedDayOfWeek = 0;
+  selectedDay = 0;
+  selectedMonth = 0;
+  selectedYear = 0;
   async setSelecting(value: string) {
     this.selecting = value;
 
@@ -356,7 +356,6 @@ export default class VueCalendar extends Vue {
 
       return;
     }
-
     this.currentMonth = month;
   }
   setByYear(year: number): void {
